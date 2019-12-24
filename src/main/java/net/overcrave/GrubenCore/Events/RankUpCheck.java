@@ -28,7 +28,7 @@ public class RankUpCheck implements Listener {
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add meister");
             Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein " + ChatColor.RED + ChatColor.BOLD + " Meister!");
         }
-        if (l >= 100 && !Main.I.perms.has(p, "großmeister")){
+        if (l >= 128 && !Main.I.perms.has(p, "großmeister")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add großmeister");
             Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein " + ChatColor.DARK_RED + ChatColor.BOLD + " Großmeister!");
         }
