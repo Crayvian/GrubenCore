@@ -1,6 +1,7 @@
 package net.overcrave.GrubenCore;
 
 import net.milkbowl.vault.permission.Permission;
+import net.overcrave.GrubenCore.Events.AFKCounter;
 import net.overcrave.GrubenCore.Events.RankUpCheck;
 import net.overcrave.GrubenCore.Events.SpawnerCheck;
 import net.overcrave.toml.Toml;
@@ -43,6 +44,7 @@ public class Main extends JavaPlugin {
         //TokenManager api = (TokenManager) Bukkit.getServer().getPluginManager().getPlugin("TokenManager");
 
         plugMan.registerEvents(new RankUpCheck(), I);
+        plugMan.registerEvents(new AFKCounter(), I);
         //plugMan.registerEvents(new SpawnerCheck(), I);
         //plugMan.registerEvents(new BlockTreasureCheck(), I);
         //plugMan.registerEvents(new DeathPenalty(), I);
