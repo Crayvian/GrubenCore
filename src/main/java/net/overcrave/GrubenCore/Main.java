@@ -1,11 +1,11 @@
 package net.overcrave.GrubenCore;
 
+import com.moandjiezana.toml.Toml;
+import com.moandjiezana.toml.TomlWriter;
 import net.milkbowl.vault.permission.Permission;
 import net.overcrave.GrubenCore.Events.AFKCounter;
 import net.overcrave.GrubenCore.Events.RankUpCheck;
 import net.overcrave.GrubenCore.Events.SpawnerCheck;
-import net.overcrave.toml.Toml;
-import net.overcrave.toml.TomlWriter;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
