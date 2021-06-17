@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 
+//This event keeps track of how long per day a player has spent being AFK on the server
+//Using CMIs AFK function
 public class AFKCounter implements Listener {
     @EventHandler
     public void onAFKEnter(CMIAfkEnterEvent event){

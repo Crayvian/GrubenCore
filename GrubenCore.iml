@@ -10,6 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="CMI-8.8.5.0" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.Zrips:Jobs:4.17.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.Zrips:CMI:8.8.5.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.pl3x.purpur:purpur-api:1.16.5-R0.1-SNAPSHOT" level="project" />

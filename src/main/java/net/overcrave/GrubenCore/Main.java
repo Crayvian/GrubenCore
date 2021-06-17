@@ -3,10 +3,7 @@ package net.overcrave.GrubenCore;
 import com.moandjiezana.toml.Toml;
 import com.moandjiezana.toml.TomlWriter;
 import net.milkbowl.vault.permission.Permission;
-import net.overcrave.GrubenCore.Events.AFKCounter;
-import net.overcrave.GrubenCore.Events.RankUpCheck;
-import net.overcrave.GrubenCore.Events.SpawnerCheck;
-import org.bukkit.ChatColor;
+import net.overcrave.GrubenCore.Events.*;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
@@ -24,9 +21,9 @@ public class Main extends JavaPlugin {
     public RegisteredServiceProvider<Permission> rsp;
     public Permission perms;
 
-    public Toml tomlSpawnerData;
-    public File spawnerDataFile = new File(getDataFolder(), "spawnerData.toml");
-    public static net.overcrave.GrubenCore.Settings.Main spawnerData = new net.overcrave.GrubenCore.Settings.Main();
+    public Toml tomlData;
+    public File settingsFile = new File(getDataFolder(), "spawnerData.toml");
+    public static net.overcrave.GrubenCore.Settings.Main settingsData = new net.overcrave.GrubenCore.Settings.Main();
 
     @Override
     public void onLoad() {
@@ -41,59 +38,57 @@ public class Main extends JavaPlugin {
         rsp = server.getServicesManager().getRegistration(Permission.class);
         perms = rsp.getProvider();
 
-        //TokenManager api = (TokenManager) Bukkit.getServer().getPluginManager().getPlugin("TokenManager");
-
         plugMan.registerEvents(new RankUpCheck(), I);
         plugMan.registerEvents(new AFKCounter(), I);
-        //plugMan.registerEvents(new SpawnerCheck(), I);
-        //plugMan.registerEvents(new BlockTreasureCheck(), I);
-        //plugMan.registerEvents(new DeathPenalty(), I);
+        plugMan.registerEvents(new SpawnerCheck(), I);
+        plugMan.registerEvents(new BlockTreasureCheck(), I);
+        plugMan.registerEvents(new DeathPenalty(), I);
 
-        //saveConfig();
+        saveConfig();
     }
 
     @Override
     public void onDisable() {
-        //saveConfig();
+        saveConfig();
     }
 
     @Override
     public void reloadConfig() {
-        //saveConfig();
+        saveConfig();
     }
 
     @Override
     public void saveConfig() {
-        //saveSettings();
+        saveSettings();
     }
 
     @Override
     public void saveDefaultConfig() {
-        //if (spawnerDataFile.exists()){
-        //    spawnerDataFile.delete();
-        //}
-        //saveConfig();
+        if (settingsFile.exists()){
+            settingsFile.delete();
+        }
+        saveConfig();
     }
 
     private void saveSettings(){
-        if (!spawnerDataFile.exists()){
-            spawnerData = new net.overcrave.GrubenCore.Settings.Main();
-            tomlSpawnerData = new Toml();
-            spawnerDataFile.getParentFile().mkdirs();
+        if (!settingsFile.exists()){
+            settingsData = new net.overcrave.GrubenCore.Settings.Main();
+            tomlData = new Toml();
+            settingsFile.getParentFile().mkdirs();
             try {
-                spawnerDataFile.createNewFile();
+                settingsFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }else{
-            tomlSpawnerData = new Toml().read(spawnerDataFile);
-            spawnerData = tomlSpawnerData.to(net.overcrave.GrubenCore.Settings.Main.class);
+            tomlData = new Toml().read(settingsFile);
+            settingsData = tomlData.to(net.overcrave.GrubenCore.Settings.Main.class);
         }
 
         TomlWriter writer = new TomlWriter();
 
         try {
-            writer.write(spawnerData, spawnerDataFile);
+            writer.write(settingsData, settingsFile);
         } catch (IOException e) {
             e.printStackTrace();
         }

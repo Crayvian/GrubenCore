@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+//This event gives the player some random keys or tokens randomly through mining
 public class BlockTreasureCheck implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {

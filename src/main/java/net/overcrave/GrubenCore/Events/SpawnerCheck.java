@@ -11,6 +11,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+//This event keeps track of how many spawners of a certain type a player has
+//in use and restricts them to place more if needed
 public class SpawnerCheck implements Listener {
     public void onSpawnerBreak(BlockBreakEvent event){
         Player p = event.getPlayer();
@@ -20,9 +22,9 @@ public class SpawnerCheck implements Listener {
         if (b instanceof CreatureSpawner){
             c = (CreatureSpawner) b;
 
-            if (Main.spawnerData != null && Main.spawnerData.spawnerUserData.size() > 0) {
+            if (Main.settingsData != null && Main.settingsData.spawnerUserData.size() > 0) {
                 Boolean userFound = false;
-                for (UserData s : Main.spawnerData.spawnerUserData) {
+                for (UserData s : Main.settingsData.spawnerUserData) {
                     if(s.uuid == p.getUniqueId().toString()){
                         userFound = true;
                         d = s;
@@ -30,7 +32,7 @@ public class SpawnerCheck implements Listener {
                 }
                 if (!userFound){
                     d = new UserData(p);
-                    Main.spawnerData.spawnerUserData.add(d);
+                    Main.settingsData.spawnerUserData.add(d);
                 }
 
                 Boolean spawnerInList = false;
@@ -58,9 +60,9 @@ public class SpawnerCheck implements Listener {
         if (b.getState() instanceof CreatureSpawner){
             c = (CreatureSpawner) b.getState();
 
-            if (Main.spawnerData != null && Main.spawnerData.spawnerUserData.size() > 0) {
+            if (Main.settingsData != null && Main.settingsData.spawnerUserData.size() > 0) {
                 Boolean userFound = false;
-                for (UserData s : Main.spawnerData.spawnerUserData) {
+                for (UserData s : Main.settingsData.spawnerUserData) {
                     if(s.uuid == p.getUniqueId().toString()){
                         userFound = true;
                         d = s;
@@ -68,7 +70,7 @@ public class SpawnerCheck implements Listener {
                 }
                 if (!userFound){
                     d = new UserData(p);
-                    Main.spawnerData.spawnerUserData.add(d);
+                    Main.settingsData.spawnerUserData.add(d);
                 }
 
                 Boolean spawnerInList = false;

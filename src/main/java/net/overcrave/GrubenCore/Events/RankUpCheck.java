@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+//This event track the players job level progression and ranks them up if they reach a certain level
 public class RankUpCheck implements Listener {
     @EventHandler
     public void onJobsLevelUp(JobsLevelUpEvent event) {
