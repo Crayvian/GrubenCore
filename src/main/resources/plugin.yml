@@ -1,5 +1,5 @@
 main: net.overcrave.GrubenCore.Main
 name: GrubenCore
-api-version: 1.15
+api-version: 1.16
 author: OverCrave
-version: 1.0
+version: 1.1.0
