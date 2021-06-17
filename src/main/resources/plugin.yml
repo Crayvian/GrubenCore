@@ -3,3 +3,6 @@ name: GrubenCore
 api-version: 1.16
 author: OverCrave
 version: 1.1.0
+depend: [Vault, CMI, Jobs]
+website: rubingrube.de
+prefix: Survival
