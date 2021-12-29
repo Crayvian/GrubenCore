@@ -39,10 +39,10 @@ public class Main extends JavaPlugin {
         perms = rsp.getProvider();
 
         plugMan.registerEvents(new RankUpCheck(), I);
-        plugMan.registerEvents(new AFKCounter(), I);
-        plugMan.registerEvents(new SpawnerCheck(), I);
-        plugMan.registerEvents(new BlockTreasureCheck(), I);
-        plugMan.registerEvents(new DeathPenalty(), I);
+        //plugMan.registerEvents(new AFKCounter(), I);
+        //plugMan.registerEvents(new SpawnerCheck(), I);
+        //plugMan.registerEvents(new BlockTreasureCheck(), I);
+        //plugMan.registerEvents(new DeathPenalty(), I);
 
         saveConfig();
     }
