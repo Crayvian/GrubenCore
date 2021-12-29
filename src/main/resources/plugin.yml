@@ -1,8 +1,8 @@
 main: net.overcrave.GrubenCore.Main
 name: GrubenCore
-api-version: 1.16
+api-version: 1.18
 author: OverCrave
-version: 1.1.0
-depend: [Vault, CMI, Jobs]
+version: 2.0.0
+depend: [Vault, mcMMO]
 website: rubingrube.de
 prefix: Survival
