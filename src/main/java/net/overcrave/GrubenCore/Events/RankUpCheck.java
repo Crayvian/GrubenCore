@@ -15,6 +15,7 @@ public class RankUpCheck implements Listener {
 
     @EventHandler
     public void onSkillLevelUp(McMMOPlayerSkillEvent event) {
+        Bukkit.broadcastMessage("SKILL LEVEL UP TEST 1");
         Player p = event.getPlayer().getPlayer();
         McMMOPlayer mcPlayer = UserManager.getPlayer(p);
         int i = mcPlayer.getPowerLevel();
@@ -22,7 +23,9 @@ public class RankUpCheck implements Listener {
     }
 
     private void rankUpCheck(Integer l, Player p){
+        Bukkit.broadcastMessage("SKILL LEVEL UP TEST 2");
         if (l >= 100 && !Main.I.perms.has(p, "lehrling")){
+            Bukkit.broadcastMessage("SKILL LEVEL UP TEST 3");
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add lehrling");
             Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein " + ChatColor.YELLOW + ChatColor.BOLD + " Lehrling!");
         }
