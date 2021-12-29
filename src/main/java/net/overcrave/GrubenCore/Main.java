@@ -21,8 +21,8 @@ public class Main extends JavaPlugin {
     public RegisteredServiceProvider<Permission> rsp;
     public Permission perms;
 
-    public Toml tomlData;
-    public File settingsFile = new File(getDataFolder(), "spawnerData.toml");
+    //public Toml tomlData;
+    //public File settingsFile = new File(getDataFolder(), "spawnerData.toml");
     public static net.overcrave.GrubenCore.Settings.Main settingsData = new net.overcrave.GrubenCore.Settings.Main();
 
     @Override
@@ -43,54 +43,5 @@ public class Main extends JavaPlugin {
         //plugMan.registerEvents(new SpawnerCheck(), I);
         //plugMan.registerEvents(new BlockTreasureCheck(), I);
         //plugMan.registerEvents(new DeathPenalty(), I);
-
-        saveConfig();
-    }
-
-    @Override
-    public void onDisable() {
-        saveConfig();
-    }
-
-    @Override
-    public void reloadConfig() {
-        saveConfig();
-    }
-
-    @Override
-    public void saveConfig() {
-        saveSettings();
-    }
-
-    @Override
-    public void saveDefaultConfig() {
-        if (settingsFile.exists()){
-            settingsFile.delete();
-        }
-        saveConfig();
-    }
-
-    private void saveSettings(){
-        if (!settingsFile.exists()){
-            settingsData = new net.overcrave.GrubenCore.Settings.Main();
-            tomlData = new Toml();
-            settingsFile.getParentFile().mkdirs();
-            try {
-                settingsFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-            tomlData = new Toml().read(settingsFile);
-            settingsData = tomlData.to(net.overcrave.GrubenCore.Settings.Main.class);
-        }
-
-        TomlWriter writer = new TomlWriter();
-
-        try {
-            writer.write(settingsData, settingsFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
