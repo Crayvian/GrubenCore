@@ -1,7 +1,7 @@
 package net.overcrave.GrubenCore.Events;
 
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
-import com.gmail.nossr50.events.skills.McMMOPlayerSkillEvent;
+import com.gmail.nossr50.events.experience.McMMOPlayerLevelChangeEvent;
 import com.gmail.nossr50.util.player.UserManager;
 import net.overcrave.GrubenCore.Main;
 import org.bukkit.Bukkit;
@@ -13,8 +13,9 @@ import org.bukkit.event.Listener;
 //This event track the players job level progression and ranks them up if they reach a certain level
 public class RankUpCheck implements Listener {
 
+
     @EventHandler
-    public void onSkillLevelUp(McMMOPlayerSkillEvent event) {
+    public void onSkillLevelUp(McMMOPlayerLevelChangeEvent event) {
         Bukkit.broadcastMessage("SKILL LEVEL UP TEST 1");
         Player p = event.getPlayer().getPlayer();
         McMMOPlayer mcPlayer = UserManager.getPlayer(p);
