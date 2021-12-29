@@ -4,5 +4,6 @@ api-version: 1.18
 author: OverCrave
 version: 2.0.0
 depend: [Vault, mcMMO]
+loadbefore: [mcMMO]
 website: rubingrube.de
 prefix: Survival
