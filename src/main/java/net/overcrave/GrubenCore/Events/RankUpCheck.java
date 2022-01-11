@@ -18,6 +18,7 @@ public class RankUpCheck implements Listener {
     public void onSkillLevelUp(McMMOPlayerLevelUpEvent event) {
         Player p = event.getPlayer().getPlayer();
         McMMOPlayer mcPlayer = UserManager.getPlayer(p);
+        assert mcPlayer != null;
         int i = mcPlayer.getPowerLevel();
         rankUpCheck(i, p);
     }
