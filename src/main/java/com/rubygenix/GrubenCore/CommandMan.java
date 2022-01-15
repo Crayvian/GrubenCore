@@ -10,7 +10,7 @@ public class CommandMan implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args == null || args.length <= 0){
-            return false;
+            return true;
         }
         if (args[0] == "reload" && sender instanceof ConsoleCommandSender){
             Main.I.reloadConfig();

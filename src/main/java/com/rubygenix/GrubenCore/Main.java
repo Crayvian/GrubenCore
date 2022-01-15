@@ -44,24 +44,29 @@ public class Main extends JavaPlugin {
         perms = rsp.getProvider();
 
         I.getCommand("grube").setExecutor(new CommandMan());
+        console.sendMessage("Befehle wurden registriert!");
 
         plugMan.registerEvents(new RankUpCheck(), I);
         //plugMan.registerEvents(new AFKCounter(), I);
         //plugMan.registerEvents(new SpawnerCheck(), I);
         //plugMan.registerEvents(new BlockTreasureCheck(), I);
         //plugMan.registerEvents(new DeathPenalty(), I);
+        console.sendMessage("Events wurden registriert!");
 
         saveConfig();
+        console.sendMessage("Die Konfiguration wurde geladen!");
     }
 
     @Override
     public void onDisable() {
         saveConfig();
+        console.sendMessage("Die Konfiguration wurde gespeichert!");
     }
 
     @Override
     public void reloadConfig() {
         saveConfig();
+        console.sendMessage("Die Konfiguration wurde neu geladen!");
     }
 
     @Override
@@ -84,12 +89,14 @@ public class Main extends JavaPlugin {
             settingsFile.getParentFile().mkdirs();
             try {
                 settingsFile.createNewFile();
+                console.sendMessage("Erfolgreich eine neue Konfiguration erstellt!");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }else{
             tomlData = new Toml().read(settingsFile);
             settingsData = tomlData.to(com.rubygenix.GrubenCore.Settings.Main.class);
+            console.sendMessage("Erfolgreich die bestehende Konfiguration geladen!");
         }
 
         TomlWriter writer = new TomlWriter();
