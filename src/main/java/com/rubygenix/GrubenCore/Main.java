@@ -5,6 +5,9 @@ import com.moandjiezana.toml.TomlWriter;
 import com.rubygenix.GrubenCore.Events.RankUpCheck;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Server;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -39,6 +42,8 @@ public class Main extends JavaPlugin {
         plugMan = server.getPluginManager();
         rsp = server.getServicesManager().getRegistration(Permission.class);
         perms = rsp.getProvider();
+
+        I.getCommand("grube").setExecutor(new CommandMan());
 
         plugMan.registerEvents(new RankUpCheck(), I);
         //plugMan.registerEvents(new AFKCounter(), I);
