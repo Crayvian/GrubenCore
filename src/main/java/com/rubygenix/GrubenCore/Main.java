@@ -2,12 +2,11 @@ package com.rubygenix.GrubenCore;
 
 import com.moandjiezana.toml.Toml;
 import com.moandjiezana.toml.TomlWriter;
+import com.rubygenix.GrubenCore.Events.DeathPenalty;
 import com.rubygenix.GrubenCore.Events.RankUpCheck;
+import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Server;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -21,14 +20,14 @@ public class Main extends JavaPlugin {
     public Server server;
     public ConsoleCommandSender console;
     public PluginManager plugMan;
-    public RegisteredServiceProvider<Permission> rsp;
+    public RegisteredServiceProvider<Permission> rspPerm;
+    public RegisteredServiceProvider<Economy> rspEcon;
     public Permission perms;
-
+    public Economy econ;
 
     public static com.rubygenix.GrubenCore.Settings.Main settingsData = new com.rubygenix.GrubenCore.Settings.Main();
     public Toml tomlData;
     public File settingsFile = new File(getDataFolder(), "settings.toml");
-
 
     @Override
     public void onLoad() {
@@ -40,17 +39,16 @@ public class Main extends JavaPlugin {
         server = I.getServer();
         console = server.getConsoleSender();
         plugMan = server.getPluginManager();
-        rsp = server.getServicesManager().getRegistration(Permission.class);
-        perms = rsp.getProvider();
+        rspPerm = server.getServicesManager().getRegistration(Permission.class);
+        rspEcon = server.getServicesManager().getRegistration(Economy.class);
+        perms = rspPerm.getProvider();
+        econ = rspEcon.getProvider();
 
         I.getCommand("grube").setExecutor(new CommandMan());
         console.sendMessage("Befehle wurden registriert!");
 
         plugMan.registerEvents(new RankUpCheck(), I);
-        //plugMan.registerEvents(new AFKCounter(), I);
-        //plugMan.registerEvents(new SpawnerCheck(), I);
-        //plugMan.registerEvents(new BlockTreasureCheck(), I);
-        //plugMan.registerEvents(new DeathPenalty(), I);
+        plugMan.registerEvents(new DeathPenalty(), I);
         console.sendMessage("Events wurden registriert!");
 
         saveConfig();
