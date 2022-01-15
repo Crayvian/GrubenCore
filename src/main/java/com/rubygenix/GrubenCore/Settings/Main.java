@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public List<UserData> spawnerUserData;
+    public RankUpData rankData;
 
     public Main(){
-        spawnerUserData = new ArrayList<UserData>();
+        rankData = new RankUpData();
     }
 }
