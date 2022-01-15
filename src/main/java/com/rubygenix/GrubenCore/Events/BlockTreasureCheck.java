@@ -1,6 +1,6 @@
-package net.overcrave.GrubenCore.Events;
+package com.rubygenix.GrubenCore.Events;
 
-import net.overcrave.GrubenCore.Main;
+import com.rubygenix.GrubenCore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

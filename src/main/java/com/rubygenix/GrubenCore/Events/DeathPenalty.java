@@ -1,4 +1,4 @@
-package net.overcrave.GrubenCore.Events;
+package com.rubygenix.GrubenCore.Events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

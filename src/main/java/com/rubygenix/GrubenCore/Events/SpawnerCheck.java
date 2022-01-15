@@ -1,8 +1,8 @@
-package net.overcrave.GrubenCore.Events;
+package com.rubygenix.GrubenCore.Events;
 
-import net.overcrave.GrubenCore.Main;
-import net.overcrave.GrubenCore.Settings.SpawnerData;
-import net.overcrave.GrubenCore.Settings.UserData;
+import com.rubygenix.GrubenCore.Main;
+import com.rubygenix.GrubenCore.Settings.SpawnerData;
+import com.rubygenix.GrubenCore.Settings.UserData;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.block.CreatureSpawner;

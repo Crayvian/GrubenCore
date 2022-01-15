@@ -1,4 +1,4 @@
-package net.overcrave.GrubenCore.Settings;
+package com.rubygenix.GrubenCore.Settings;
 
 public class SpawnerData {
     public String SpawnerType;

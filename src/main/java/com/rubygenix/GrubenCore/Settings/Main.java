@@ -1,4 +1,4 @@
-package net.overcrave.GrubenCore.Settings;
+package com.rubygenix.GrubenCore.Settings;
 
 import java.util.ArrayList;
 import java.util.List;

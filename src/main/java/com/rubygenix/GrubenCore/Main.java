@@ -1,17 +1,12 @@
-package net.overcrave.GrubenCore;
+package com.rubygenix.GrubenCore;
 
-import com.moandjiezana.toml.Toml;
-import com.moandjiezana.toml.TomlWriter;
+import com.rubygenix.GrubenCore.Events.RankUpCheck;
 import net.milkbowl.vault.permission.Permission;
-import net.overcrave.GrubenCore.Events.*;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.IOException;
 
 public class Main extends JavaPlugin {
     public static Main I;
@@ -23,7 +18,7 @@ public class Main extends JavaPlugin {
 
     //public Toml tomlData;
     //public File settingsFile = new File(getDataFolder(), "spawnerData.toml");
-    public static net.overcrave.GrubenCore.Settings.Main settingsData = new net.overcrave.GrubenCore.Settings.Main();
+    public static com.rubygenix.GrubenCore.Settings.Main settingsData = new com.rubygenix.GrubenCore.Settings.Main();
 
     @Override
     public void onLoad() {
