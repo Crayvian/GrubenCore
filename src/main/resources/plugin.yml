@@ -3,6 +3,6 @@ name: GrubenCore
 api-version: 1.18
 author: OverCrave
 version: 2.1.0
-depend: [Vault, mcMMO]
-loadbefore: [mcMMO]
+depend: [Vault, mcMMO, CMI]
+loadbefore: [Vault, mcMMO, CMI]
 prefix: GrubenCore
