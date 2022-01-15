@@ -1,5 +1,6 @@
 package com.rubygenix.GrubenCore.Events;
 
+import com.Zrips.CMI.CMI;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.events.experience.McMMOPlayerLevelUpEvent;
 import com.gmail.nossr50.util.player.UserManager;
@@ -13,10 +14,10 @@ import org.bukkit.event.Listener;
 //This event tracks the players powerlevel progression and ranks them up if they reach a certain level
 public class RankUpCheck implements Listener {
 
-    int lehrlingMin = 80;
-    int geselleMin = 400;
-    int meisterMin = 800;
-    int großmeisterMin = 1200;
+    int lehrlingMin = Main.settingsData.rankData.lehrlingRequirement;
+    int geselleMin = Main.settingsData.rankData.geselleRequirement;
+    int meisterMin = Main.settingsData.rankData.meisterRequirement;
+    int grossmeisterMin = Main.settingsData.rankData.grossmeisterRequirement;
 
     @EventHandler
     public void onSkillLevelUp(McMMOPlayerLevelUpEvent event) {
@@ -30,19 +31,19 @@ public class RankUpCheck implements Listener {
     private void rankUpCheck(Integer l, Player p){
         if (l >= lehrlingMin && !Main.I.perms.has(p, "lehrling")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add lehrling");
-            Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.YELLOW + ChatColor.BOLD + " Lehrling!");
+            CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.YELLOW + ChatColor.BOLD + " Lehrling!");
         }
         if (l >= geselleMin && !Main.I.perms.has(p, "geselle")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add geselle");
-            Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.GREEN + ChatColor.BOLD + " Geselle!");
+            CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.GREEN + ChatColor.BOLD + " Geselle!");
         }
         if (l >= meisterMin && !Main.I.perms.has(p, "meister")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add meister");
-            Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.RED + ChatColor.BOLD + " Meister!");
+            CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.RED + ChatColor.BOLD + " Meister!");
         }
-        if (l >= großmeisterMin && !Main.I.perms.has(p, "großmeister")){
+        if (l >= grossmeisterMin && !Main.I.perms.has(p, "großmeister")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add großmeister");
-            Bukkit.broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getDisplayName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.DARK_RED + ChatColor.BOLD + " Großmeister!");
+            CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.DARK_RED + ChatColor.BOLD + " Großmeister!");
         }
     }
 }
