@@ -9,10 +9,12 @@ import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-
+import net.coreprotect.CoreProtect;
+import net.coreprotect.CoreProtectAPI;
 import java.io.File;
 import java.io.IOException;
 
@@ -25,6 +27,7 @@ public class Main extends JavaPlugin {
     public RegisteredServiceProvider<Economy> rspEcon;
     public Permission perms;
     public Economy econ;
+    public CoreProtectAPI coAPI;
 
     public static com.rubygenix.GrubenCore.Settings.Main settingsData = new com.rubygenix.GrubenCore.Settings.Main();
     public Toml tomlData;
@@ -44,6 +47,7 @@ public class Main extends JavaPlugin {
         rspEcon = server.getServicesManager().getRegistration(Economy.class);
         perms = rspPerm.getProvider();
         econ = rspEcon.getProvider();
+        coAPI = getCoreProtect();
 
         I.getCommand("grube").setExecutor(new CommandMan());
         console.sendMessage("Befehle wurden registriert!");
@@ -106,5 +110,27 @@ public class Main extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private CoreProtectAPI getCoreProtect() {
+        Plugin plugin = getServer().getPluginManager().getPlugin("CoreProtect");
+
+        // Check that CoreProtect is loaded
+        if (plugin == null || !(plugin instanceof CoreProtect)) {
+            return null;
+        }
+
+        // Check that the API is enabled
+        CoreProtectAPI CoreProtect = ((CoreProtect) plugin).getAPI();
+        if (CoreProtect.isEnabled() == false) {
+            return null;
+        }
+
+        // Check that a compatible version of the API is loaded
+        if (CoreProtect.APIVersion() < 7) {
+            return null;
+        }
+
+        return CoreProtect;
     }
 }
