@@ -9,23 +9,23 @@ public class BlockTreasureData {
         commonRange = 1000;
         rareRange = 100;
 
-        standardTokenChance = 0.01;
+        standardTokenChance = 0.008;
         standardTokenMin = 2;
         standardTokenMax = 8;
 
-        lehrlingTokenChance = 0.02;
+        lehrlingTokenChance = 0.009;
         lehrlingTokenMin = 4;
         lehrlingTokenMax = 16;
 
-        geselleTokenChance = 0.02;
+        geselleTokenChance = 0.01;
         geselleTokenMin = 8;
         geselleTokenMax = 32;
 
-        meisterTokenChance = 0.03;
+        meisterTokenChance = 0.015;
         meisterTokenMin = 16;
         meisterTokenMax = 64;
 
-        grossmeisterTokenChance = 0.04;
+        grossmeisterTokenChance = 0.02;
         grossmeisterTokenMin = 32;
         grossmeisterTokenMax = 128;
     }
