@@ -2,13 +2,18 @@ package com.rubygenix.GrubenCore.Events;
 
 import com.rubygenix.GrubenCore.Main;
 import com.rubygenix.GrubenCore.Settings.BlockTreasureData;
+import net.coreprotect.CoreProtectAPI;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+
+import java.util.List;
 import java.util.Random;
 
 //This event gives the player some random keys or tokens randomly through mining
@@ -17,6 +22,20 @@ public class BlockTreasureCheck implements Listener {
     public void onBlockBreak(BlockBreakEvent event) {
         Player p = event.getPlayer().getPlayer();
         Material m = event.getBlock().getType();
+        Location loc = event.getBlock().getLocation();
+
+        List<String[]> lookup = Main.I.coAPI.performLookup(31000000, null, null, null, null, null, 1, loc.toBlockLocation());
+        if (lookup!=null){
+            for (String[] value : lookup){
+                CoreProtectAPI.ParseResult result = Main.I.coAPI.parseResult(value);
+                if(result.getX() == loc.getBlockX() && result.getY() == loc.getBlockY() && result.getZ() == loc.getBlockZ()){
+                    if(result.getActionString() == "place"){
+                        return;
+                    }
+                }
+            }
+        }
+
         BlockTreasureData treasureData = Main.settingsData.blockTreasureData;
 
         double commonChance = Math.random()*treasureData.commonRange;
