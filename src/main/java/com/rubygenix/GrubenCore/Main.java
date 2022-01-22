@@ -2,6 +2,7 @@ package com.rubygenix.GrubenCore;
 
 import com.moandjiezana.toml.Toml;
 import com.moandjiezana.toml.TomlWriter;
+import com.rubygenix.GrubenCore.Events.BlockTreasureCheck;
 import com.rubygenix.GrubenCore.Events.DeathPenalty;
 import com.rubygenix.GrubenCore.Events.RankUpCheck;
 import net.milkbowl.vault.economy.Economy;
@@ -49,6 +50,7 @@ public class Main extends JavaPlugin {
 
         plugMan.registerEvents(new RankUpCheck(), I);
         plugMan.registerEvents(new DeathPenalty(), I);
+        plugMan.registerEvents(new BlockTreasureCheck(), I);
         console.sendMessage("Events wurden registriert!");
 
         saveConfig();
