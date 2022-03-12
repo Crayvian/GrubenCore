@@ -4,6 +4,7 @@ import com.moandjiezana.toml.Toml;
 import com.moandjiezana.toml.TomlWriter;
 import com.rubygenix.GrubenCore.Events.BlockTreasureCheck;
 import com.rubygenix.GrubenCore.Events.DeathPenalty;
+import com.rubygenix.GrubenCore.Events.DirtPathSpeedUp;
 import com.rubygenix.GrubenCore.Events.RankUpCheck;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -55,6 +56,7 @@ public class Main extends JavaPlugin {
         plugMan.registerEvents(new RankUpCheck(), I);
         plugMan.registerEvents(new DeathPenalty(), I);
         plugMan.registerEvents(new BlockTreasureCheck(), I);
+        plugMan.registerEvents(new DirtPathSpeedUp(), I);
         console.sendMessage("Events wurden registriert!");
 
         saveConfig();
