@@ -3,6 +3,7 @@ package com.rubygenix.GrubenCore.Events;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.events.experience.McMMOPlayerLevelUpEvent;
 import com.gmail.nossr50.util.player.UserManager;
+import com.rubygenix.GrubenCore.Main;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,7 +20,21 @@ public class DirtPathSpeedUp implements Listener {
         Player p = event.getPlayer().getPlayer();
         Location loc = event.getTo();
         if(loc.getBlock().getType() == Material.DIRT_PATH){
-            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 2));
+            if(Main.I.perms.has(p, "großmeister")){
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 5));
+            }
+            else if(Main.I.perms.has(p, "meister")){
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 4));
+            }
+            else if(Main.I.perms.has(p, "geselle")){
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 3));
+            }
+            else if(Main.I.perms.has(p, "lehrling")){
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 2));
+            }
+            else{
+                p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1));
+            }
         }
     }
 }
