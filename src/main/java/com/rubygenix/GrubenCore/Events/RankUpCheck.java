@@ -14,11 +14,6 @@ import org.bukkit.event.Listener;
 //This event tracks the players powerlevel progression and ranks them up if they reach a certain level
 public class RankUpCheck implements Listener {
 
-    int lehrlingMin = Main.settingsData.rankData.lehrlingRequirement;
-    int geselleMin = Main.settingsData.rankData.geselleRequirement;
-    int meisterMin = Main.settingsData.rankData.meisterRequirement;
-    int grossmeisterMin = Main.settingsData.rankData.grossmeisterRequirement;
-
     @EventHandler
     public void onSkillLevelUp(McMMOPlayerLevelUpEvent event) {
         Player p = event.getPlayer().getPlayer();
@@ -29,6 +24,11 @@ public class RankUpCheck implements Listener {
     }
 
     private void rankUpCheck(Integer l, Player p){
+        int lehrlingMin = Main.settingsData.rankData.lehrlingRequirement;
+        int geselleMin = Main.settingsData.rankData.geselleRequirement;
+        int meisterMin = Main.settingsData.rankData.meisterRequirement;
+        int grossmeisterMin = Main.settingsData.rankData.grossmeisterRequirement;
+
         if (l >= lehrlingMin && !Main.I.perms.has(p, "lehrling")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add lehrling");
             CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.YELLOW + ChatColor.BOLD + " Lehrling!");
