@@ -35,14 +35,20 @@ public class RankUpCheck implements Listener {
         }
         if (l >= geselleMin && !Main.I.perms.has(p, "geselle")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add geselle");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove lehrling");
             CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.GREEN + ChatColor.BOLD + " Geselle!");
         }
         if (l >= meisterMin && !Main.I.perms.has(p, "meister")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add meister");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove lehrling");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove geselle");
             CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.RED + ChatColor.BOLD + " Meister!");
         }
         if (l >= grossmeisterMin && !Main.I.perms.has(p, "großmeister")){
             Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent add großmeister");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove lehrling");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove geselle");
+            Bukkit.dispatchCommand(Main.I.console, "lp user " + p.getName() + " parent remove meister");
             CMI.getInstance().broadcastMessage("" + ChatColor.GOLD + ChatColor.BOLD + p.getName() + ChatColor.YELLOW + " ist jetzt ein" + ChatColor.DARK_RED + ChatColor.BOLD + " Großmeister!");
         }
     }
