@@ -6,6 +6,8 @@ import com.rubygenix.GrubenCore.Events.BlockTreasureCheck;
 import com.rubygenix.GrubenCore.Events.DeathPenalty;
 import com.rubygenix.GrubenCore.Events.DirtPathSpeedUp;
 import com.rubygenix.GrubenCore.Events.RankUpCheck;
+import net.coreprotect.CoreProtect;
+import net.coreprotect.CoreProtectAPI;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Server;
@@ -14,8 +16,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import net.coreprotect.CoreProtect;
-import net.coreprotect.CoreProtectAPI;
+
 import java.io.File;
 import java.io.IOException;
 

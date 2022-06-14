@@ -1,8 +1,8 @@
 main: com.rubygenix.GrubenCore.Main
 name: GrubenCore
-api-version: 1.18
+api-version: 1.19
 author: OverCrave
-version: 2.2.0
+version: 2.3.0
 depend: [Vault, mcMMO, CMI]
 loadbefore: [Vault, mcMMO, CMI]
 prefix: GrubenCore
