@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.Zribs</groupId>
             <artifactId>CMI</artifactId>
-            <version>9.0.0.0</version>
+            <version>9.3.1.5</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
