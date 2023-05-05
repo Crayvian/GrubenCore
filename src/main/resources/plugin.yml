@@ -2,7 +2,7 @@ main: de.rubingrube.GrubenCore.Main
 name: GrubenCore
 api-version: 1.19
 author: OverCrave
-version: 2.3.0
+version: 3.0.0
 depend: [Vault, mcMMO, CMI]
 loadbefore: [Vault, mcMMO, CMI]
 prefix: GrubenCore
