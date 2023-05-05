@@ -1,4 +1,4 @@
-main: com.rubygenix.GrubenCore.Main
+main: de.rubingrube.GrubenCore.Main
 name: GrubenCore
 api-version: 1.19
 author: OverCrave

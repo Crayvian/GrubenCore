@@ -1,7 +1,4 @@
-package com.rubygenix.GrubenCore.Settings;
-
-import java.util.ArrayList;
-import java.util.List;
+package de.rubingrube.GrubenCore.Settings;
 
 public class Main {
     public RankUpData rankData;

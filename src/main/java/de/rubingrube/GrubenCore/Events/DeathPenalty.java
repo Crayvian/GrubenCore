@@ -1,12 +1,7 @@
-package com.rubygenix.GrubenCore.Events;
+package de.rubingrube.GrubenCore.Events;
 
-import com.Zrips.CMI.CMI;
-import com.Zrips.CMI.Containers.CMIEvent;
-import com.Zrips.CMI.Modules.DeathMessages.DeathMessageListener;
-import com.rubygenix.GrubenCore.Main;
-import com.rubygenix.GrubenCore.Settings.DeathPenaltyData;
-import net.kyori.adventure.text.Component;
-import org.bukkit.Bukkit;
+import de.rubingrube.GrubenCore.Main;
+import de.rubingrube.GrubenCore.Settings.DeathPenaltyData;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

@@ -1,9 +1,8 @@
-package com.rubygenix.GrubenCore;
+package de.rubingrube.GrubenCore;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 
 public class CommandMan implements CommandExecutor {
 

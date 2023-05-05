@@ -1,13 +1,12 @@
-package com.rubygenix.GrubenCore.Events;
+package de.rubingrube.GrubenCore.Events;
 
-import com.rubygenix.GrubenCore.Main;
-import com.rubygenix.GrubenCore.Settings.BlockTreasureData;
+import de.rubingrube.GrubenCore.Main;
+import de.rubingrube.GrubenCore.Settings.BlockTreasureData;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

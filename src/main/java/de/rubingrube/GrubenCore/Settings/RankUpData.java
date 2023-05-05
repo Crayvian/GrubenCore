@@ -1,4 +1,4 @@
-package com.rubygenix.GrubenCore.Settings;
+package de.rubingrube.GrubenCore.Settings;
 
 public class RankUpData {
     public int lehrlingRequirement, geselleRequirement, meisterRequirement, grossmeisterRequirement;

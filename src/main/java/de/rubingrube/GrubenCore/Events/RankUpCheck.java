@@ -1,10 +1,10 @@
-package com.rubygenix.GrubenCore.Events;
+package de.rubingrube.GrubenCore.Events;
 
 import com.Zrips.CMI.CMI;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.events.experience.McMMOPlayerLevelUpEvent;
 import com.gmail.nossr50.util.player.UserManager;
-import com.rubygenix.GrubenCore.Main;
+import de.rubingrube.GrubenCore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

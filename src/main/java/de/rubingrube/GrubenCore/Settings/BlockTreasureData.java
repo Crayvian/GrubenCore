@@ -1,4 +1,4 @@
-package com.rubygenix.GrubenCore.Settings;
+package de.rubingrube.GrubenCore.Settings;
 
 public class BlockTreasureData {
     public double standardTokenChance, lehrlingTokenChance, geselleTokenChance, meisterTokenChance, grossmeisterTokenChance;

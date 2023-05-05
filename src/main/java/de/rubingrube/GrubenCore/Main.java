@@ -1,11 +1,10 @@
-package com.rubygenix.GrubenCore;
+package de.rubingrube.GrubenCore;
 
 import com.moandjiezana.toml.Toml;
 import com.moandjiezana.toml.TomlWriter;
-import com.rubygenix.GrubenCore.Events.BlockTreasureCheck;
-import com.rubygenix.GrubenCore.Events.DeathPenalty;
-import com.rubygenix.GrubenCore.Events.DirtPathSpeedUp;
-import com.rubygenix.GrubenCore.Events.RankUpCheck;
+import de.rubingrube.GrubenCore.Events.BlockTreasureCheck;
+import de.rubingrube.GrubenCore.Events.DeathPenalty;
+import de.rubingrube.GrubenCore.Events.DirtPathSpeedUp;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import net.milkbowl.vault.economy.Economy;
@@ -31,7 +30,7 @@ public class Main extends JavaPlugin {
     public Economy econ;
     public CoreProtectAPI coAPI;
 
-    public static com.rubygenix.GrubenCore.Settings.Main settingsData = new com.rubygenix.GrubenCore.Settings.Main();
+    public static de.rubingrube.GrubenCore.Settings.Main settingsData = new de.rubingrube.GrubenCore.Settings.Main();
     public Toml tomlData;
     public File settingsFile = new File(getDataFolder(), "settings.toml");
 
@@ -91,7 +90,7 @@ public class Main extends JavaPlugin {
 
     private void saveSettings(){
         if (!settingsFile.exists()){
-            settingsData = new com.rubygenix.GrubenCore.Settings.Main();
+            settingsData = new de.rubingrube.GrubenCore.Settings.Main();
             tomlData = new Toml();
             settingsFile.getParentFile().mkdirs();
             try {
@@ -102,7 +101,7 @@ public class Main extends JavaPlugin {
             }
         }else{
             tomlData = new Toml().read(settingsFile);
-            settingsData = tomlData.to(com.rubygenix.GrubenCore.Settings.Main.class);
+            settingsData = tomlData.to(de.rubingrube.GrubenCore.Settings.Main.class);
             console.sendMessage("Erfolgreich die bestehende Konfiguration geladen!");
         }
 

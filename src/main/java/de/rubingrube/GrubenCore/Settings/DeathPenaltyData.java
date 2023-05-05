@@ -1,4 +1,4 @@
-package com.rubygenix.GrubenCore.Settings;
+package de.rubingrube.GrubenCore.Settings;
 
 public class DeathPenaltyData {
     public int standardTokenLossMin, standardTokenLossMax, lehrlingTokenLossMin, lehrlingTokenLossMax, geselleTokenLossMin, geselleTokenLossMax, meisterTokenLossMin, meisterTokenLossMax;
