@@ -50,6 +50,8 @@ public class Main extends JavaPlugin {
         econ = rspEcon.getProvider();
         coAPI = getCoreProtect();
 
+        coAPI.testAPI();
+
         I.getCommand("grube").setExecutor(new CommandMan());
         console.sendMessage("Befehle wurden registriert!");
 
@@ -129,7 +131,7 @@ public class Main extends JavaPlugin {
         }
 
         // Check that a compatible version of the API is loaded
-        if (CoreProtect.APIVersion() < 7) {
+        if (CoreProtect.APIVersion() < 9) {
             return null;
         }
 

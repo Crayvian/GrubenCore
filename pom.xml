@@ -42,7 +42,7 @@
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
         <repository>
-            <id>playpro</id>
+            <id>coreprotect</id>
             <url>https://maven.playpro.com</url>
         </repository>
         <repository>
