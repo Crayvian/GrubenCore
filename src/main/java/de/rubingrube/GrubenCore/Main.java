@@ -121,17 +121,20 @@ public class Main extends JavaPlugin {
 
         // Check that CoreProtect is loaded
         if (plugin == null || !(plugin instanceof CoreProtect)) {
+            console.sendMessage("CoreProtect isn't loaded!");
             return null;
         }
 
         // Check that the API is enabled
         CoreProtectAPI CoreProtect = ((CoreProtect) plugin).getAPI();
         if (CoreProtect.isEnabled() == false) {
+            console.sendMessage("CoreProtect isn't enabled!");
             return null;
         }
 
         // Check that a compatible version of the API is loaded
         if (CoreProtect.APIVersion() < 9) {
+            console.sendMessage("CoreProtect's API version is less than 9!");
             return null;
         }
 
