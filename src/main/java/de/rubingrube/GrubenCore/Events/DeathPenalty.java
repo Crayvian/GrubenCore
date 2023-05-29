@@ -22,30 +22,35 @@ public class DeathPenalty implements Listener {
     private void playerCheck(Player p){
         OfflinePlayer oP = Main.I.server.getOfflinePlayer(p.getUniqueId());
         double bal = Main.I.econ.getBalance(oP);
-        if (bal < 10.0){
-            return;
-        }
 
         DeathPenaltyData deathData = Main.settingsData.deathPenaltyData;
-        if (Main.I.perms.has(p, "meister")){
-            int tokenloss = getRandomNumber(deathData.meisterTokenLossMin, deathData.meisterTokenLossMax);
-            if (tokenloss != 0){
-                Main.I.econ.withdrawPlayer(oP, tokenloss);
-                p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
-            }
+        if (Main.I.perms.has(p, "großmeister")){
+            int maxAmount = (int)(bal*(deathData.großmeisterTokenLossMax/100.0f));
+            int tokenloss = getRandomNumber(deathData.großmeisterTokenLossMin, maxAmount);
+            Main.I.econ.withdrawPlayer(oP, tokenloss);
+            p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
+        }
+        else if (Main.I.perms.has(p, "meister")){
+            int maxAmount = (int)(bal*(deathData.meisterTokenLossMax/100.0f));
+            int tokenloss = getRandomNumber(deathData.meisterTokenLossMin, maxAmount);
+            Main.I.econ.withdrawPlayer(oP, tokenloss);
+            p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
         }
         else if (Main.I.perms.has(p, "geselle")){
-            int tokenloss = getRandomNumber(deathData.geselleTokenLossMin, deathData.geselleTokenLossMax);
+            int maxAmount = (int)(bal*(deathData.geselleTokenLossMax/100.0f));
+            int tokenloss = getRandomNumber(deathData.geselleTokenLossMin, maxAmount);
             Main.I.econ.withdrawPlayer(oP, tokenloss);
             p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
         }
         else if (Main.I.perms.has(p, "lehrling")){
-            int tokenloss = getRandomNumber(deathData.lehrlingTokenLossMin, deathData.lehrlingTokenLossMax);
+            int maxAmount = (int)(bal*(deathData.lehrlingTokenLossMax/100.0f));
+            int tokenloss = getRandomNumber(deathData.lehrlingTokenLossMin, maxAmount);
             Main.I.econ.withdrawPlayer(oP, tokenloss);
             p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
         }
         else{
-            int tokenloss = getRandomNumber(deathData.standardTokenLossMin, deathData.standardTokenLossMax);
+            int maxAmount = (int)(bal*(deathData.standardTokenLossMax/100.0f));
+            int tokenloss = getRandomNumber(deathData.standardTokenLossMin, maxAmount);
             Main.I.econ.withdrawPlayer(oP, tokenloss);
             p.sendMessage(ChatColor.RED + "Du hast beim Tod " + ChatColor.DARK_RED + ChatColor.BOLD + tokenloss +" Tokens " + ChatColor.RED + "verloren!");
         }
