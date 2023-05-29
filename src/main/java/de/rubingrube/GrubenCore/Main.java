@@ -55,7 +55,6 @@ public class Main extends JavaPlugin {
         I.getCommand("grube").setExecutor(new CommandMan());
         console.sendMessage("Befehle wurden registriert!");
 
-        //plugMan.registerEvents(new RankUpCheck(), I);
         plugMan.registerEvents(new DeathPenalty(), I);
         plugMan.registerEvents(new BlockTreasureCheck(), I);
         plugMan.registerEvents(new DirtPathSpeedUp(), I);
